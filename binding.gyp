@@ -10,8 +10,6 @@
         'src/keyset_wrapper.cc',
         'src/trie_wrapper.cc',
       ],
-      'cflags!': [ '-fno-exceptions' ],
-      'cflags_cc!': [ '-fno-exceptions' ],
       'conditions': [
         ['OS == "win"', {
           'dependencies': [
