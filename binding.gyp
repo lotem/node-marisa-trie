@@ -10,6 +10,8 @@
         'src/keyset_wrapper.cc',
         'src/trie_wrapper.cc',
       ],
+      'cflags!': [ '-fno-exceptions' ],
+      'cflags_cc!': [ '-fno-exceptions' ],
       'conditions': [
         ['OS == "win"', {
           'dependencies': [
@@ -25,6 +27,7 @@
             '-L/usr/local/lib',
           ],
           'xcode_settings': {
+            'GCC_ENABLE_CPP_EXCEPTIONS': 'YES',
             'MACOSX_DEPLOYMENT_TARGET': '10.7',
             'OTHER_CPLUSPLUSFLAGS': [
               '-stdlib=libc++',
@@ -35,10 +38,6 @@
         ['OS == "linux"', {
           'libraries': [
             '-lmarisa',
-          ],
-          'include_dirs': [
-            '/usr/lib',
-            '/usr/local/lib',
           ],
         }],
       ],
